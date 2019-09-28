@@ -1,0 +1,64 @@
+﻿@model MegaSoft1.Models.Additional.PersonalDetailsViewMdl
+@using MegaSoft1.Models
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Подробнее</h2>
+
+<div>
+    <h4>подробная анкета персонала</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Имя
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            Возраст
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+
+        <dt>
+            Дата рождения
+        </dt>
+
+        <dd>
+            @Model.Birthday.ToShortDateString()
+        </dd>
+
+        <dt>
+            Семейное положение
+        </dt>
+
+        <dd>
+            @MegaSoft1.Models.GetEnumValues.GetDisplayName(Model.MaritalStatus)
+        </dd>
+
+        <dt>
+            Пол
+        </dt>
+
+        <dd>
+            @MegaSoft1.Models.GetEnumValues.GetDisplayName(Model.Gender)
+        </dd>
+
+        <dt>
+            Любите вы программировать:
+        </dt>
+
+        <dd>
+            @MegaSoft1.Models.GetEnumValues.GetDisplayName(Model.LoveToProgram)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Назад", "Index")
+</p>
